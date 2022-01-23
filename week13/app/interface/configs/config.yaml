@@ -1,0 +1,27 @@
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 10s
+data:
+  database:
+    driver: mysql
+    source: root:123456@tcp(127.0.0.1:3306)/testdb?parseTime=True
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+registry:
+  nacosServers:
+    - address: 127.0.0.1
+      port: 8888
+  nacosClient:
+    namespace: bc13296a-df71-44c0-9a98-29c2e3a63017
+    timeout: 50000
+auth:
+  api_key: test_user
+  expire: 7
+trace:
+  endpoint: http://127.0.0.1:14268/api/traces
